@@ -1,0 +1,21 @@
+[package]
+name = "cleanup"
+version = "0.0.1"
+edition = "2021"
+authors = ["André de Matteo <amatteo.m@gmail.com>"]
+description = "Cleaning Up the Mess - Ferramenta de limpeza de arquivos temporários e cache do Windows"
+
+[[bin]]
+name = "cleanup"
+path = "src/main.rs"
+
+[profile.release]
+opt-level = 3     # Máxima otimização
+lto = true        # Link-Time Optimization (menor tamanho)
+codegen-units = 1 # Melhor otimização (mais lento para compilar)
+panic = "abort"   # Menor binário final
+strip = true      # Remove símbolos de debug
+
+[profile.dev]
+opt-level = 0
+debug = true
